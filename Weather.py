@@ -10,6 +10,10 @@ def data_get() :
     w_label1.config(text = data["weather"][0]["main"])
     wd_label1.config(text = data["weather"][0]["description"])
     wt_label1.config(text =str(int(data["main"]["temp"]-273)))
+    humidity_label1.config(text = str(data["main"]["humidity"]) + " %")
+    pressure_label1.config(text = str(data["main"]["pressure"]) + " hPa")
+    wind_label1.config(text = str(data["wind"]["speed"]) + " m/s")
+    feels_label1.config(text = str(round(data["main"]["feels_like"] - 273.15, 1)) + " °C")
 
 
 pop = Tk()
@@ -17,7 +21,7 @@ pop = Tk()
 pop.title("Banerjee's First App")
 
 pop.config(bg = "Light Green")
-pop.geometry("500x500")
+pop.geometry("500x800")
 
 
 pop_label = Label (pop,text = "Banerjee's Weather App", font = ("Times New Roman", 30, "bold"))
@@ -57,14 +61,35 @@ wt_label1.place(x = 250, y = 400, height = 50, width = 210)
 
 
 
+humidity_label = Label(pop, text="Humidity", font=("Times New Roman", 15, "bold"))
+humidity_label.place(x=25, y=470, height=50, width=210)
+
+humidity_label1 = Label(pop, font=("Times New Roman", 15, "bold"))
+humidity_label1.place(x=250, y=470, height=50, width=210)
 
 
 
+pressure_label = Label(pop, text="Pressure", font=("Times New Roman", 15, "bold"))
+pressure_label.place(x=25, y=540, height=50, width=210)
+
+pressure_label1 = Label(pop, font=("Times New Roman", 15, "bold"))
+pressure_label1.place(x=250, y=540, height=50, width=210)
 
 
 
+wind_label = Label(pop, text="Wind Speed", font=("Times New Roman", 15, "bold"))
+wind_label.place(x=25, y=610, height=50, width=210)
+
+wind_label1 = Label(pop, font=("Times New Roman", 15, "bold"))
+wind_label1.place(x=250, y=610, height=50, width=210)
 
 
+
+feels_label = Label(pop, text="Feels Like", font=("Times New Roman", 15, "bold"))
+feels_label.place(x=25, y=680, height=50, width=210)
+
+feels_label1 = Label(pop, font=("Times New Roman", 15, "bold"))
+feels_label1.place(x=250, y=680, height=50, width=210)
 
 
 pop.mainloop()
